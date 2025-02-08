@@ -11,10 +11,9 @@ import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import { useEffect, useState } from "react";
 import "../App.css";
-import "leaflet-control-geocoder/Control.Geocoder.css"
+import "leaflet-control-geocoder/Control.Geocoder.css";
 import "leaflet-control-geocoder";
 const { BaseLayer } = LayersControl;
-
 
 function Map() {
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
@@ -81,7 +80,7 @@ function Map() {
   return (
     <div className=" h-full">
       <MapContainer center={[14.539463420883909, 120.9830204750233]} zoom={18}>
-      <LayersControl position="topright">
+        <LayersControl position="topright" className="custom-layers-control">
           <BaseLayer checked name="OpenStreetMap">
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -91,7 +90,7 @@ function Map() {
           <BaseLayer name="Satellite">
             <TileLayer
               attribution='&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url='https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg'
+              url="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg"
             />
           </BaseLayer>
         </LayersControl>
@@ -123,4 +122,3 @@ function Map() {
 }
 
 export default Map;
-
